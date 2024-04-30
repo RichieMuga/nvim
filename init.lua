@@ -1,0 +1,2 @@
+require("richie")
+print("hiiiiiiii")
