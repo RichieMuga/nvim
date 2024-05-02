@@ -79,21 +79,6 @@ _G.packer_plugins = {
     path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  catppuccin = {
-    loaded = true,
-    path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/catppuccin",
-    url = "https://github.com/catppuccin/nvim"
-  },
-  ["cmp-buffer"] = {
-    loaded = true,
-    path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/cmp-buffer",
-    url = "https://github.com/hrsh7th/cmp-buffer"
-  },
-  ["cmp-path"] = {
-    loaded = true,
-    path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/cmp-path",
-    url = "https://github.com/hrsh7th/cmp-path"
-  },
   cmp_luasnip = {
     loaded = true,
     path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
@@ -104,31 +89,17 @@ _G.packer_plugins = {
     path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
-  ["gitsigns.nvim"] = {
-    loaded = true,
-    path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
-    url = "https://github.com/lewis6991/gitsigns.nvim"
-  },
-  harpoon = {
-    loaded = true,
-    path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/harpoon",
-    url = "https://github.com/ThePrimeagen/harpoon"
-  },
   ["mason-lspconfig.nvim"] = {
+    config = { "\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20mason-lspconfig\frequire\0" },
     loaded = true,
     path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
   ["mason.nvim"] = {
+    config = { "\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nmason\frequire\0" },
     loaded = true,
     path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["none-ls.nvim"] = {
-    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fnull-ls\frequire\0" },
-    loaded = true,
-    path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/none-ls.nvim",
-    url = "https://github.com/nvimtools/none-ls.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -136,62 +107,31 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
+    config = { "\27LJ\2\n½\1\0\2\a\0\b\0\0146\2\0\0009\2\1\0029\2\2\2\18\4\1\0'\5\3\0'\6\4\0B\2\4\0019\2\5\0+\3\2\0=\3\6\0029\2\5\0+\3\2\0=\3\a\2K\0\1\0\31documentFormattingProvider\23definitionProvider\24server_capabilities\27v:lua.vim.lsp.omnifunc\romnifunc\24nvim_buf_set_option\bapi\bvimû\5\1\0\n\0-\0b6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\1B\1\1\0029\2\4\0009\2\5\0025\4\6\0=\1\a\0043\5\b\0=\5\t\4B\2\2\0016\2\0\0'\4\n\0B\2\2\0029\3\5\0025\5\r\0004\6\3\0005\a\v\0>\a\1\0065\a\f\0>\a\2\6=\6\14\0055\6\17\0009\a\15\0029\a\16\aB\a\1\2=\a\18\0069\a\15\0029\a\19\aB\a\1\2=\a\20\0069\a\15\0029\a\21\a5\t\22\0B\a\2\2=\a\23\6=\6\15\5B\3\2\0016\3\24\0009\3\25\0039\3\26\3'\5\27\0'\6\28\0006\a\24\0009\a\29\a9\a\30\a9\a\31\a5\b \0B\3\5\0016\3\24\0009\3\25\0039\3\26\3'\5\27\0'\6!\0006\a\24\0009\a\29\a9\a\30\a9\a\"\a5\b#\0B\3\5\0016\3\24\0009\3\25\0039\3\26\3'\5\27\0'\6$\0006\a\24\0009\a\29\a9\a\30\a9\a%\a5\b&\0B\3\5\0016\3\24\0009\3\25\0039\3\26\3'\5\27\0'\6'\0006\a\24\0009\a\29\a9\a\30\a9\a(\a5\b)\0B\3\5\0016\3\24\0009\3\25\0039\3\26\3'\5\27\0'\6*\0006\a\24\0009\a\29\a9\a\30\a9\a+\a5\b,\0B\3\5\1K\0\1\0\1\0\1\vbuffer\2\vrename\15<leader>rn\1\0\1\vbuffer\2\16code_action\15<leader>ca\1\0\1\vbuffer\2\nhover\6K\1\0\1\vbuffer\2\15references\agr\1\0\1\vbuffer\2\15definition\bbuf\blsp\agd\6n\bset\vkeymap\bvim\t<CR>\1\0\1\vselect\2\fconfirm\n<C-e>\nclose\14<C-Space>\1\0\0\rcomplete\fmapping\fsources\1\0\0\1\0\1\tname\vbuffer\1\0\1\tname\rnvim_lsp\bcmp\14on_attach\0\17capabilities\1\0\0\nsetup\rtsserver\25default_capabilities\17cmp_nvim_lsp\14lspconfig\frequire\0" },
     loaded = true,
     path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-treesitter"] = {
-    loaded = true,
-    path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
-  },
-  playground = {
-    loaded = true,
-    path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/playground",
-    url = "https://github.com/nvim-treesitter/playground"
-  },
-  ["plenary.nvim"] = {
-    loaded = true,
-    path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/plenary.nvim",
-    url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["telescope-ui-select.nvim"] = {
-    loaded = true,
-    path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",
-    url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
-  },
-  ["telescope.nvim"] = {
-    loaded = true,
-    path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/telescope.nvim",
-    url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  undotree = {
-    loaded = true,
-    path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/undotree",
-    url = "https://github.com/mbbill/undotree"
-  },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vim-wakatime"] = {
-    loaded = true,
-    path = "/home/richiemugambi/.local/share/nvim/site/pack/packer/start/vim-wakatime",
-    url = "https://github.com/wakatime/vim-wakatime"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: none-ls.nvim
-time([[Config for none-ls.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fnull-ls\frequire\0", "config", "none-ls.nvim")
-time([[Config for none-ls.nvim]], false)
+-- Config for: mason.nvim
+time([[Config for mason.nvim]], true)
+try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nmason\frequire\0", "config", "mason.nvim")
+time([[Config for mason.nvim]], false)
+-- Config for: mason-lspconfig.nvim
+time([[Config for mason-lspconfig.nvim]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20mason-lspconfig\frequire\0", "config", "mason-lspconfig.nvim")
+time([[Config for mason-lspconfig.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\2\n½\1\0\2\a\0\b\0\0146\2\0\0009\2\1\0029\2\2\2\18\4\1\0'\5\3\0'\6\4\0B\2\4\0019\2\5\0+\3\2\0=\3\6\0029\2\5\0+\3\2\0=\3\a\2K\0\1\0\31documentFormattingProvider\23definitionProvider\24server_capabilities\27v:lua.vim.lsp.omnifunc\romnifunc\24nvim_buf_set_option\bapi\bvimû\5\1\0\n\0-\0b6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\1B\1\1\0029\2\4\0009\2\5\0025\4\6\0=\1\a\0043\5\b\0=\5\t\4B\2\2\0016\2\0\0'\4\n\0B\2\2\0029\3\5\0025\5\r\0004\6\3\0005\a\v\0>\a\1\0065\a\f\0>\a\2\6=\6\14\0055\6\17\0009\a\15\0029\a\16\aB\a\1\2=\a\18\0069\a\15\0029\a\19\aB\a\1\2=\a\20\0069\a\15\0029\a\21\a5\t\22\0B\a\2\2=\a\23\6=\6\15\5B\3\2\0016\3\24\0009\3\25\0039\3\26\3'\5\27\0'\6\28\0006\a\24\0009\a\29\a9\a\30\a9\a\31\a5\b \0B\3\5\0016\3\24\0009\3\25\0039\3\26\3'\5\27\0'\6!\0006\a\24\0009\a\29\a9\a\30\a9\a\"\a5\b#\0B\3\5\0016\3\24\0009\3\25\0039\3\26\3'\5\27\0'\6$\0006\a\24\0009\a\29\a9\a\30\a9\a%\a5\b&\0B\3\5\0016\3\24\0009\3\25\0039\3\26\3'\5\27\0'\6'\0006\a\24\0009\a\29\a9\a\30\a9\a(\a5\b)\0B\3\5\0016\3\24\0009\3\25\0039\3\26\3'\5\27\0'\6*\0006\a\24\0009\a\29\a9\a\30\a9\a+\a5\b,\0B\3\5\1K\0\1\0\1\0\1\vbuffer\2\vrename\15<leader>rn\1\0\1\vbuffer\2\16code_action\15<leader>ca\1\0\1\vbuffer\2\nhover\6K\1\0\1\vbuffer\2\15references\agr\1\0\1\vbuffer\2\15definition\bbuf\blsp\agd\6n\bset\vkeymap\bvim\t<CR>\1\0\1\vselect\2\fconfirm\n<C-e>\nclose\14<C-Space>\1\0\0\rcomplete\fmapping\fsources\1\0\0\1\0\1\tname\vbuffer\1\0\1\tname\rnvim_lsp\bcmp\14on_attach\0\17capabilities\1\0\0\nsetup\rtsserver\25default_capabilities\17cmp_nvim_lsp\14lspconfig\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
         requires = { "nvim-lua/plenary.nvim" },
     })
     use({"lewis6991/gitsigns.nvim"})
+    use 'hrsh7th/cmp-nvim-lsp'
 
 end
 
