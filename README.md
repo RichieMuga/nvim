@@ -68,30 +68,33 @@ After following the installation steps, you can start using the configured Neovi
 Here is a cheetsheet of the bindings in the nvim configaration
 ### Git stuff
 Located in plugins/git-stuff.lua
-* ``` <leader>gp ``` go to previous hunk
-* ``` <leader>gt ``` toggle current line blame
+* ``` <leader>gp ``` go to previous hunk in ``` Normal mode ```
+* ``` <leader>gt ``` toggle current line blame in ``` Normal mode ```
 
 ### Lsp lua
 Located in plugins/lsp.lua
-* ``` <leader>gd ``` go to defenition
-* ``` <leader>gr ``` refrences
-* ``` <leader>ca ``` code actions
+* ``` <leader>gd ``` go to defenition in ``` Normal mode ```
+* ``` <leader>gr ``` refrences in ``` Normal mode ```
+* ``` <leader>ca ``` code actions in ``` Normal mode ```
 
 ### None ls
 Loacated in plugins/none-ls.lua
-``` <leader>gf ``` format code
+``` <leader>gf ``` format code in ``` Normal mode ```
 
 ### Completions
 Loacated in plugins/completions.lua
-* ``` <C-b> ``` scroll docs -4
-* ``` <C-f> ``` scroll docs 4
-* ``` <C-leader> ``` complete
-* ``` <C-e> ```  abort
-* ``` <C-R> ``` confitm
+* ``` <C-b> ``` scroll docs -4 in ``` Normal mode ```
+* ``` <C-f> ``` scroll docs 4 in ``` Normal mode ```
+* ``` <C-leader> ``` complete in ``` Normal mode ```
+* ``` <C-e> ```  abort in ``` Normal mode ```
+* ``` <C-R> ``` confitm in ``` Normal mode ```
 
 ### Undo Telescope tree
 Located in plugins/undo-toggle.lua
-* ``` <leader>ut ``` undo tree toggle
+* ``` <leader>ut ``` undo tree toggle in ``` Normal mode ```
+
+### Take screenshots with carbon
+* ``` z ``` take screenshots in ``` Visual mode ```
 
 
 ## Conclusion
