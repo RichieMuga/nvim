@@ -45,9 +45,9 @@ Nerd Fonts are a popular font collection that includes many glyphs and icons use
     sudo cp *.otf /usr/share/fonts/
   ```
 7. After copying fonts, refresh the system's font cache with the following command
-   ```
+  ```
     sudo fc-cache -fv
-   ```
+  ```
 8. Configure your terminal emulator to use the installed Nerd Font:
 
 For Gnome Terminal:
