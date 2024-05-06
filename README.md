@@ -96,6 +96,10 @@ Located in plugins/undo-toggle.lua
 ### Take screenshots with carbon
 * ``` z ``` take screenshots in ``` Visual mode ```
 
+###  Neotree
+* ``` <C-n> ```, Neotree filesystem reveal left in ```normal mode```
+* ```<leader>bf```, Neotree buffers reveal float in ```normal mode```
+
 
 ## Conclusion
 Hope you enjoy nvim as much as me. Goodluck!
