@@ -11,31 +11,30 @@ return {
     lazy = false,
     opts = {
       auto_install = true,
+      automatic_installation = {
+        exclude = {
+          "tsserver",
+        },
+      },
     },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    lazy = false,
-    config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
+    config = function(plugin)
       local lspconfig = require("lspconfig")
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      -- Configure tsserver to handle TSX files
       lspconfig.tsserver.setup({
         capabilities = capabilities,
-        filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" }
+        filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
       })
-      lspconfig.html.setup({
-        capabilities = capabilities
-      })
-      lspconfig.solargraph.setup({
-        capabilities = capabilities
-      })
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities
-      })
-      lspconfig.gopls.setup({
-        capabilities = capabilities
-      })
+
+      -- Automatically install and configure other language servers
+      plugin.setup_handlers {
+        function(server_name)
+          lspconfig[server_name].setup({
+            capabilities = capabilities,
+          })
+        end,
+      }
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
