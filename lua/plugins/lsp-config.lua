@@ -37,8 +37,13 @@ return {
       lspconfig.unocss.setup({
         capabilities = capabilities,
         filetypes = {
-          "typescriptreact"
-        }
+          "typescriptreact",
+        },
+      })
+      lspconfig.pyright.setup({
+        capabilities = capabilities,
+        venv = vim.env.VIRTUAL_ENV,
+        filetypes = { "python" },
       })
       lspconfig.emmet_ls.setup({
         -- on_attach = on_attach,
