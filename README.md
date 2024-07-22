@@ -89,9 +89,9 @@ Loacated in plugins/completions.lua
 * ``` <C-e> ```  abort in ``` Normal mode ```
 * ``` <C-R> ``` confitm in ``` Normal mode ```
 
-### Undo Telescope tree
+### Undotree
 Located in plugins/undo-toggle.lua
-* ``` <leader>ut ``` undo tree toggle in ``` Normal mode ```
+* ``` <leader>u ``` undo tree toggle in ``` Normal mode ```
 
 ### Take screenshots with carbon
 * ``` z ``` take screenshots in ``` Visual mode ```
