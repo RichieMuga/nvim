@@ -13,10 +13,12 @@ return {
     vim.keymap.set("n", "<leader>bf", ":Neotree buffers reveal float<CR>", { silent = true, noremap = true })
     vim.keymap.set("n", "<C-l>", ":Neotree filesystem reveal left<CR>", { silent = true, noremap = true })
 
-    -- Additional options for neo-tree if required
+    -- Updated Neo-tree configuration
     require("neo-tree").setup({
       filesystem = {
-        follow_current_file = true, -- This option follows the current file in the tree
+        follow_current_file = {
+          enabled = true,  -- Set this to false if you don't want to follow the current file
+        },
         hijack_netrw_behavior = "open_default", -- Replaces netrw with neo-tree
       },
     })
