@@ -6,15 +6,22 @@ return {
     null_ls.setup({
       sources = {
         -- General formatting and diagnostics
+        -- Lua
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.diagnostics.erb_lint,
+        -- GO
         null_ls.builtins.formatting.gofmt,
         null_ls.builtins.formatting.goimports,
         null_ls.builtins.diagnostics.golangci_lint,
         null_ls.builtins.diagnostics.revive,
+        -- Python
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.isort,
+        null_ls.builtins.diagnostics.flake8,
+        null_ls.builtins.diagnostics.jedi_language_server,
+        null_ls.builtins.diagnostics.pyslp,
+        -- Sql
         null_ls.builtins.formatting.sql_formatter,
         null_ls.builtins.diagnostics.sqlfluff,
         -- CSS-specific formatters and linters
