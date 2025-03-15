@@ -18,7 +18,7 @@ return {
         -- Python
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.isort,
-        null_ls.builtins.diagnostics.flake8,
+        null_ls.builtins.formatting.flake8,
         -- Sql
         null_ls.builtins.formatting.sql_formatter,
         null_ls.builtins.diagnostics.sqlfluff,
