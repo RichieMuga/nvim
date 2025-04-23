@@ -23,6 +23,7 @@ return {
         "tailwindcss",
         "sqlls",
         "dockerls",
+        "intelephense"
       },
     },
   },
@@ -48,6 +49,19 @@ return {
         tailwindcss = {},
         dockerls = { filetypes = { "Dockerfile", "docker-compose" } },
         sqlls = {},
+        intelephense = {
+          settings = {
+            intelephense = {
+              environment = {
+                includePaths = { "vendor" },
+              },
+              files = {
+                maxSize = 1000000,
+              },
+            },
+          },
+        },
+
       }
       -- Setup all servers
       for server, config in pairs(servers) do
@@ -63,6 +77,24 @@ return {
         },
         init_options = {
           html = { options = { ["output.selfClosingStyle"] = "xhtml" } },
+        },
+      })
+      -- Go setuo
+      lspconfig.gopls.setup({
+        capabilities = capabilities,
+        cmd = { "gopls" },
+        filetypes = { "go", "gomod", "gowork", "gotmpl" },
+        root_dir = function(fname)
+          -- Look for go.mod, go.work, or .git as potential root markers
+          return lspconfig.util.root_pattern("go.mod", "go.work", ".git")(fname)
+        end,
+        settings = {
+          gopls = {
+            analyses = {
+              unusedparams = true,
+            },
+            staticcheck = true,
+          },
         },
       })
       -- Keybindings for LSP

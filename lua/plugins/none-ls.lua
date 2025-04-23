@@ -3,32 +3,54 @@ return {
   "nvimtools/none-ls.nvim",
   config = function()
     local null_ls = require("null-ls")
+    local formatting = null_ls.builtins.formatting
+    local diagnostics = null_ls.builtins.diagnostics
+
     null_ls.setup({
       sources = {
-        -- General formatting and diagnostics
         -- Lua
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.prettier,
-        null_ls.builtins.diagnostics.erb_lint,
+        formatting.stylua,
+
+        -- JavaScript/TypeScript/HTML/CSS
+        formatting.prettier,
+
+        -- PHP formatters
+        formatting.pint,
+
+        -- PHP linters
+        diagnostics.phpcs.with({
+          command = "phpcs",
+          args = { "--standard=PSR12", "-" },
+        }),
+
+        diagnostics.phpstan.with({
+          command = "phpstan",
+          args = { "analyse", "--error-format=raw", "--memory-limit=512M", "-" },
+        }),
+
         -- GO
-        null_ls.builtins.formatting.gofmt,
-        null_ls.builtins.formatting.goimports,
-        null_ls.builtins.diagnostics.golangci_lint,
-        null_ls.builtins.diagnostics.revive,
+        formatting.gofmt,
+        formatting.goimports,
+        diagnostics.golangci_lint,
+        diagnostics.revive,
+
         -- Python
-        null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.isort,
-        null_ls.builtins.formatting.flake8,
-        -- Sql
-        null_ls.builtins.formatting.sql_formatter,
-        null_ls.builtins.diagnostics.sqlfluff,
-        -- CSS-specific formatters and linters
-        null_ls.builtins.formatting.stylelint, -- CSS formatter
-        null_ls.builtins.diagnostics.stylelint, -- CSS linter
+        formatting.black,
+        formatting.isort,
+
+        -- SQL
+        formatting.sql_formatter,
+        diagnostics.sqlfluff,
+
+        -- CSS
+        formatting.stylelint,
+        diagnostics.stylelint,
       },
     })
 
-    -- Keybinding for formatting
-    vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+    vim.keymap.set("n", "<leader>gf", function()
+      vim.lsp.buf.format({ async = true })
+    end, { desc = "Format buffer" })
   end,
 }
+
