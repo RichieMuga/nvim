@@ -1,4 +1,3 @@
--- lsp-config.lua
 return {
   {
     "williamboman/mason.nvim",
@@ -32,8 +31,8 @@ return {
     lazy = false,
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
-      -- Configure each LSP separately
+      
+      -- Configure each LSP separately using vim.lsp.config
       local servers = {
         ts_ls = {},
         pyright = {
@@ -44,10 +43,23 @@ return {
           },
         },
         lua_ls = {},
-        gopls = {},
+        gopls = {
+          cmd = { "gopls" },
+          filetypes = { "go", "gomod", "gowork", "gotmpl" },
+          settings = {
+            gopls = {
+              analyses = {
+                unusedparams = true,
+              },
+              staticcheck = true,
+            },
+          },
+        },
         cssls = {},
         tailwindcss = {},
-        dockerls = { filetypes = { "Dockerfile", "docker-compose" } },
+        dockerls = { 
+          filetypes = { "dockerfile", "Dockerfile" } 
+        },
         sqlls = {},
         intelephense = {
           settings = {
@@ -61,15 +73,22 @@ return {
             },
           },
         },
-
       }
+      
       -- Setup all servers
       for server, config in pairs(servers) do
         config.capabilities = capabilities
-        lspconfig[server].setup(config)
+        vim.lsp.enable(server)
+        
+        -- Apply server-specific config
+        if next(config) then
+          vim.lsp.config[server] = config
+        end
       end
+      
       -- Emmet setup
-      lspconfig.emmet_ls.setup({
+      vim.lsp.enable('emmet_ls')
+      vim.lsp.config.emmet_ls = {
         capabilities = capabilities,
         filetypes = {
           "css", "eruby", "html", "javascript", "javascriptreact",
@@ -78,25 +97,8 @@ return {
         init_options = {
           html = { options = { ["output.selfClosingStyle"] = "xhtml" } },
         },
-      })
-      -- Go setuo
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
-        cmd = { "gopls" },
-        filetypes = { "go", "gomod", "gowork", "gotmpl" },
-        root_dir = function(fname)
-          -- Look for go.mod, go.work, or .git as potential root markers
-          return lspconfig.util.root_pattern("go.mod", "go.work", ".git")(fname)
-        end,
-        settings = {
-          gopls = {
-            analyses = {
-              unusedparams = true,
-            },
-            staticcheck = true,
-          },
-        },
-      })
+      }
+      
       -- Keybindings for LSP
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
