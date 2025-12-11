@@ -1,4 +1,3 @@
--- lsp-config.lua
 return {
   {
     "williamboman/mason.nvim",
@@ -32,24 +31,52 @@ return {
     lazy = false,
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
-      -- Configure each LSP separately
+      
+      -- Define server configurations
       local servers = {
-        ts_ls = {},
+        ts_ls = {
+          capabilities = capabilities,
+        },
         pyright = {
+          capabilities = capabilities,
           settings = {
             python = {
               analysis = { typeCheckingMode = "basic" },
             },
           },
         },
-        lua_ls = {},
-        gopls = {},
-        cssls = {},
-        tailwindcss = {},
-        dockerls = { filetypes = { "Dockerfile", "docker-compose" } },
-        sqlls = {},
+        lua_ls = {
+          capabilities = capabilities,
+        },
+        gopls = {
+          capabilities = capabilities,
+          cmd = { "gopls" },
+          filetypes = { "go", "gomod", "gowork", "gotmpl" },
+          root_dir = vim.fs.dirname(vim.fs.find({ "go.mod", "go.work", ".git" }, { upward = true })[1]),
+          settings = {
+            gopls = {
+              analyses = {
+                unusedparams = true,
+              },
+              staticcheck = true,
+            },
+          },
+        },
+        cssls = {
+          capabilities = capabilities,
+        },
+        tailwindcss = {
+          capabilities = capabilities,
+        },
+        dockerls = {
+          capabilities = capabilities,
+          filetypes = { "Dockerfile", "docker-compose" },
+        },
+        sqlls = {
+          capabilities = capabilities,
+        },
         intelephense = {
+          capabilities = capabilities,
           settings = {
             intelephense = {
               environment = {
@@ -61,42 +88,24 @@ return {
             },
           },
         },
-
-      }
-      -- Setup all servers
-      for server, config in pairs(servers) do
-        config.capabilities = capabilities
-        lspconfig[server].setup(config)
-      end
-      -- Emmet setup
-      lspconfig.emmet_ls.setup({
-        capabilities = capabilities,
-        filetypes = {
-          "css", "eruby", "html", "javascript", "javascriptreact",
-          "less", "sass", "scss", "typescriptreact", "vue",
-        },
-        init_options = {
-          html = { options = { ["output.selfClosingStyle"] = "xhtml" } },
-        },
-      })
-      -- Go setuo
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
-        cmd = { "gopls" },
-        filetypes = { "go", "gomod", "gowork", "gotmpl" },
-        root_dir = function(fname)
-          -- Look for go.mod, go.work, or .git as potential root markers
-          return lspconfig.util.root_pattern("go.mod", "go.work", ".git")(fname)
-        end,
-        settings = {
-          gopls = {
-            analyses = {
-              unusedparams = true,
-            },
-            staticcheck = true,
+        emmet_ls = {
+          capabilities = capabilities,
+          filetypes = {
+            "css", "eruby", "html", "javascript", "javascriptreact",
+            "less", "sass", "scss", "typescriptreact", "vue",
+          },
+          init_options = {
+            html = { options = { ["output.selfClosingStyle"] = "xhtml" } },
           },
         },
-      })
+      }
+      
+      -- Setup all servers using the new API
+      for server_name, config in pairs(servers) do
+        vim.lsp.config[server_name] = config
+        vim.lsp.enable(server_name)
+      end
+      
       -- Keybindings for LSP
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
